@@ -1,0 +1,6 @@
+{
+  "name": "Dashboard Analitik Rekrutmen",
+  "description": "Dasbor analitik interaktif untuk memantau pencapaian target rekrutmen, anggota inti baru, dan kampus yang bergabung.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
