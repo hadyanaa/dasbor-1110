@@ -129,11 +129,11 @@ export default function App() {
   }, []);
 
   const GOOGLE_SCRIPT_URLS = {
-    password: "https://script.google.com/macros/s/AKfycbzZ0d7dgwKqGOEQsmn7_9bExeLO_MFO5AzO-B_AF71665wsx8UOnzzkZJmIoOzcx2Q1/exec",
-    rekrutmen: "https://script.google.com/macros/s/AKfycbz5kLn9XONdPt77xepVz6nBnnfxHSZ1u_SpsJbk6oH52lmCv4G4lmj4C7NRtaL-um4D/exec",
-    anggota: "https://script.google.com/macros/s/AKfycbzok4kOFE-CDzLE5XI2-XMT21OzGuNZUBPkVMjWGPD5mhxRIubGsZK1_cmb3r2NpL02/exec",
-    kampus: "https://script.google.com/macros/s/AKfycbwOKZTHtzuJJZKqqD-6x_zO_2GSBi6GFongZwj4CcUETXFEV7GFTNVE7Yf7TqQpFAhS/exec",
-    agenda: "https://script.google.com/macros/s/AKfycbzszbtTH8j1W7lYSaLrv4kqjabHtEp41UB2o6NZi_XtPA9mH--tcESDdF_YtEk9Zrl0/exec"
+    password: "https://script.google.com/macros/s/AKfycbxZ0d7dgwKqGOEQsmn7_9bExeLO_MFO5AzO-B_AF71665wsx8UOnzzkZJmIoOzcx2Q1/exec",
+    rekrutmen: "https://script.google.com/macros/s/AKfycby7nMnbgTuz1X51Tqf2y11XtjkNoPcSOSLq__vBA5NFnwJEGTTGgpmV0Ki94IqEkOrV/exec",
+    anggota: "https://script.google.com/macros/s/AKfycbwTt_fOOSyZQlXRzyHexE415SYmnrLbh79xdH5ILMafqLgiGkKa09zz-tFlUc8sDSlO/exec",
+    kampus: "https://script.google.com/macros/s/AKfycbw-wxYQA_1mslzWM-V5YpQmlvOSOFjPwQvdRJxKwvf4iMbncGwnnzYxzhvxacznTelE/exec",
+    agenda: "https://script.google.com/macros/s/AKfycbyJAv4rMhTMPPH4I85KXtS5bWoYe6-07434QqQ4OupqyDT0Jpv2F-Lb9ji8vwdPH9Us/exec"
   };
 
   // Primary Fetch function
