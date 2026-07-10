@@ -26,10 +26,10 @@ const fallbackMonthlyCoreMembers = [
 // Helper to fetch and map data from google sheets
 async function getGoogleSheetsData() {
   const urls = {
-    rekrutmen: "https://script.google.com/macros/s/AKfycby7nMnbgTuz1X51Tqf2y11XtjkNoPcSOSLq__vBA5NFnwJEGTTGgpmV0Ki94IqEkOrV/exec",
-    anggota: "https://script.google.com/macros/s/AKfycbwTt_fOOSyZQlXRzyHexE415SYmnrLbh79xdH5ILMafqLgiGkKa09zz-tFlUc8sDSlO/exec",
-    kampus: "https://script.google.com/macros/s/AKfycbw-wxYQA_1mslzWM-V5YpQmlvOSOFjPwQvdRJxKwvf4iMbncGwnnzYxzhvxacznTelE/exec",
-    agenda: "https://script.google.com/macros/s/AKfycbyJAv4rMhTMPPH4I85KXtS5bWoYe6-07434QqQ4OupqyDT0Jpv2F-Lb9ji8vwdPH9Us/exec"
+    rekrutmen: "https://script.google.com/macros/s/AKfycbz5kLn9XONdPt77xepVz6nBnnfxHSZ1u_SpsJbk6oH52lmCv4G4lmj4C7NRtaL-um4D/exec",
+    anggota: "https://script.google.com/macros/s/AKfycbzok4kOFE-CDzLE5XI2-XMT21OzGuNZUBPkVMjWGPD5mhxRIubGsZK1_cmb3r2NpL02/exec",
+    kampus: "https://script.google.com/macros/s/AKfycbwOKZTHtzuJJZKqqD-6x_zO_2GSBi6GFongZwj4CcUETXFEV7GFTNVE7Yf7TqQpFAhS/exec",
+    agenda: "https://script.google.com/macros/s/AKfycbzszbtTH8j1W7lYSaLrv4kqjabHtEp41UB2o6NZi_XtPA9mH--tcESDdF_YtEk9Zrl0/exec"
   };
 
   try {
@@ -39,8 +39,6 @@ async function getGoogleSheetsData() {
       fetch(urls.kampus).then(r => r.json()).catch(() => []),
       fetch(urls.agenda).then(r => r.json()).catch(() => [])
     ]);
-    console.log("Fetched data from Google Sheets:");
-    console.log(urls);
 
     // Filter active items (where row.nama is defined and not empty)
     const filterActive = (list: any[]) => {
@@ -131,7 +129,7 @@ async function startServer() {
     }
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxZ0d7dgwKqGOEQsmn7_9bExeLO_MFO5AzO-B_AF71665wsx8UOnzzkZJmIoOzcx2Q1/exec");
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzZ0d7dgwKqGOEQsmn7_9bExeLO_MFO5AzO-B_AF71665wsx8UOnzzkZJmIoOzcx2Q1/exec");
       if (!response.ok) {
         throw new Error("Gagal mengambil data password dari Google Sheet.");
       }
@@ -151,22 +149,22 @@ async function startServer() {
       }
 
       // If the spreadsheet is empty or fails, fallback to default passwords for a smooth experience
-      // const hasAnyValue = Array.isArray(data) && data.length > 0;
-      // if (!hasAnyValue && (password === "rekrutmen2026" || password === "admin123" || password === "bismillah" || password === "IndonesiaAman")) {
-      //   isMatch = true;
-      // }
+      const hasAnyValue = Array.isArray(data) && data.length > 0;
+      if (!hasAnyValue && (password === "rekrutmen2026" || password === "admin123" || password === "bismillah" || password === "IndonesiaAman")) {
+        isMatch = true;
+      }
 
-      // if (isMatch) {
-      //   return res.json({ success: true, message: "Password cocok!" });
-      // } else {
-      //   return res.status(401).json({ success: false, message: "Password salah atau tidak terdaftar di spreadsheet." });
-      // }
+      if (isMatch) {
+        return res.json({ success: true, message: "Password cocok!" });
+      } else {
+        return res.status(401).json({ success: false, message: "Password salah atau tidak terdaftar di spreadsheet." });
+      }
     } catch (error: any) {
       console.error("Password verify error:", error);
-      // if (password === "rekrutmen2026" || password === "admin123" || password === "bismillah" || password === "IndonesiaAman") {
-      //   return res.json({ success: true, message: "Password cocok! (Mode Fallback Offline)" });
-      // }
-      return res.status(500).json({ success: false, message: "Koneksi ke API Google Sheets gagal." });
+      if (password === "rekrutmen2026" || password === "admin123" || password === "bismillah" || password === "IndonesiaAman") {
+        return res.json({ success: true, message: "Password cocok! (Mode Fallback Offline)" });
+      }
+      return res.status(500).json({ success: false, message: "Koneksi ke API Google Sheets gagal. Gunakan password default 'rekrutmen2026'." });
     }
   });
 
