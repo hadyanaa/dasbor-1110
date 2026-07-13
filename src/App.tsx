@@ -483,9 +483,6 @@ export default function App() {
             <span className="text-[10px] text-slate-500 font-sans block leading-normal">
               Password divalidasi langsung terhadap Google Spreadsheet.
             </span>
-            <span className="text-[10px] text-slate-400 font-sans font-medium block mt-1 leading-normal">
-              Password untuk pengujian: <strong className="font-mono text-emerald-400 font-semibold select-all">IndonesiaAman</strong>
-            </span>
           </div>
         </motion.div>
       </div>
