@@ -35,8 +35,11 @@ export interface DashboardStats {
 export interface RecruitmentItem {
   id: string;
   name: string;
-  campus: string;
-  status: string;
+  jk: string;
+  mentor: string;
+  level: string;
+  angkatan: string;
+  kampus: string;
   channel: string;
   date: string;
   email: string;
@@ -56,10 +59,14 @@ export interface RecruitmentResponse {
 export interface CoreMemberItem {
   id: string;
   name: string;
-  role: string;
-  campus: string;
+  jk: string;
+  mentor: string;
+  kampus: string;
+  pekerjaan: string;
   dateJoined: string;
+  angkatan: string;
   email: string;
+  bidang: string;
 }
 
 export interface AgendaItem {

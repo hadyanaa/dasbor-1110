@@ -48,48 +48,9 @@ export default function RecruitmentsSection({
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="section-recruitment">
-      {/* Sidebar: Channel Stats */}
-      <div className="space-y-6">
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm">
-          <h4 className="font-display font-semibold text-slate-100 text-lg mb-4 flex items-center gap-2">
-            <Users className="w-5 h-5 text-emerald-500" />
-            Saluran Rekrutmen
-          </h4>
-          <p className="text-slate-400 text-xs mb-5">
-            Distribusi asal pendaftar berdasarkan media dan metode sosialisasi program dari Google Spreadsheet.
-          </p>
-
-          <div className="space-y-4">
-            {channels.length > 0 ? (
-              channels.map((ch, idx) => {
-                const maxCount = Math.max(...channels.map(c => c.count), 1);
-                const percent = (ch.count / maxCount) * 100;
-                return (
-                  <div key={idx} className="space-y-1">
-                    <div className="flex justify-between text-xs">
-                      <span className="font-medium text-slate-300">{ch.name}</span>
-                      <span className="font-mono font-bold text-slate-100">{ch.count} Pendaftar</span>
-                    </div>
-                    <div className="w-full bg-slate-950 h-2 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${percent}%` }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="bg-emerald-500 h-full rounded-full"
-                      />
-                    </div>
-                  </div>
-                );
-              })
-            ) : (
-              <p className="text-xs text-slate-600 italic">Belum ada data saluran pendaftaran.</p>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* Main Table: List of Recruits */}
-      <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col h-full">
+      <div className="lg:col-span-3 bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col h-full">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div>
             <h4 className="font-display font-semibold text-slate-100 text-lg">

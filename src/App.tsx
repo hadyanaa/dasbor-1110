@@ -195,11 +195,15 @@ export default function App() {
       const mappedMembers = activeMembersRaw.map((row: any, idx: number) => {
         const id = row.no ? `M-${String(row.no).padStart(2, "0")}` : `M-API-${idx + 1}`;
         const name = String(row.nama).trim();
-        const role = row.bidang ? String(row.bidang).trim() : "Anggota Inti";
-        const campus = row.kampus || row.universitas || "Institut Teknologi Bandung";
+        const jk = row.jk || row.jenis_kelamin || "Laki-laki";
+        const mentor = row.mentor || row.koordinator || "Ustadz Mentor";
+        const kampus = row.kampus || row.universitas || "STTNF";
+        const angkatan = row.angkatan || "2023";
+        const pekerjaan = row.pekerjaan || "Kuliah";
         const email = row.email || `${name.toLowerCase().replace(/\s+/g, "")}@kampus.ac.id`;
+        const bidang = row.bidang ? String(row.bidang).trim() : "Anggota Inti";
         const dateJoined = row.tanggal || "2026-07-09";
-        return { id, name, role, campus, email, dateJoined };
+        return { id, name, jk, mentor, kampus, angkatan, pekerjaan, bidang, email, dateJoined };
       });
 
       // 3. Campuses
